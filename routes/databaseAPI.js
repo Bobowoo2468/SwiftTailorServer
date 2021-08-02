@@ -18,10 +18,10 @@ const db = mysql.createConnection({
 // })
 
 
-const sqlSelect = "SELECT * FROM fashiondb";
-db.query(sqlSelect, (err, result) => {
-    router.post ("/", {
-      result
+router.post("/", (req, res) => {
+    const sqlSelect = "SELECT * FROM fashiondb";
+    db.query(sqlSelect, (err, result) => {
+        res.send(result);
     })
 })
 
