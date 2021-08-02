@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const imgAPIRouter = require("./routes/imgAPI");
 const paramsAPIRouter = require('./routes/paramsAPI');
 const databaseAPIRouter = require('./routes/databaseAPI');
+const processAPIRouter = require ('./routes/processAPI');
 
 var app = express();
 
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/imgAPI', imgAPIRouter);
 app.use('/paramsAPI', paramsAPIRouter);
 app.use('/databaseAPI', databaseAPIRouter);
+app.use('/processAPI', processAPIRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
