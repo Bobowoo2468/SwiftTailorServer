@@ -10,12 +10,19 @@ const db = mysql.createConnection({
   insecureAuth: 'true',
 })
 
-router.get("/", (req, res) => {
-    const sqlSelect = "SELECT * FROM fashiondb";
-    db.query(sqlSelect, (err, result) => {
-        res.send(result);
+// router.get("/", (req, res) => {
+//     const sqlSelect = "SELECT * FROM fashiondb";
+//     db.query(sqlSelect, (err, result) => {
+//         res.send(result);
+//     })
+// })
+
+
+const sqlSelect = "SELECT * FROM fashiondb";
+db.query(sqlSelect, (err, result) => {
+    router.post ("/", {
+      result
     })
 })
-
 
 module.exports = router;
