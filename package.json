@@ -26,5 +26,19 @@
   },
   "engines": {
     "node": "v11.3.0"
-  }
+  },
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bobowoo2468/SwiftTailorServer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bobowoo2468/SwiftTailorServer/issues"
+  },
+  "homepage": "https://github.com/Bobowoo2468/SwiftTailorServer#readme",
+  "description": ""
 }
