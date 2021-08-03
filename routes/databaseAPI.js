@@ -30,10 +30,22 @@ router.post("/", (req, res) => {
 //   console.log('HELLO');
 // })
 
-router.post("/test", (req, res) => {
-  const obj = {"adult": "Hello, World", "baby" : "Sam"};
-  res.send(obj);
-  console.log(obj);
-})
+// router.post("/test", (req, res) => {
+//   const obj = {"adult": "Hello, World", "baby" : "Sam"};
+//   res.send(obj);
+//   console.log(obj);
+// })
+
+router.post("/test", function(req,res,next) {
+  const spawn = require("child_process").spawn;
+  const process = spawn('python', ["bodyshape.py", "https://res.cloudinary.com/dnsw7cosi/image/upload/v1627983009/gvvidw9o3qoy1mw5yvzf.jpg", 100, 200, 300, false]); 
+  process.stdout.on('data', function(data){
+      dataToSend = data.toString();
+      console.log(data); 
+      console.log(dataToSend);
+      res.send(dataToSend);
+  });
+
+});
 
 module.exports = router;
