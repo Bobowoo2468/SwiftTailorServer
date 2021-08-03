@@ -31,11 +31,9 @@ router.post("/", (req, res) => {
 // })
 
 router.post("/test", (req, res) => {
-  const sqlSelect = "SELECT * FROM fashiondb";
-  db.query(sqlSelect, (err, result) => {
-      res.send(result);
-      console.log(result);
-  })
+  const obj = {"adult": "Hello, World", "baby" : "Sam"};
+  res.send(obj);
+  console.log(obj);
 })
 
 module.exports = router;
