@@ -138,11 +138,6 @@ def findMax(width):
 
 levels = [int(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4])]
 
-# find the max value from measurements array
-# max = []
-# for i in range (0, 3):
-#     max.append(findMax(findMeasurements(levels[i])[0]))
-
 # create 2d arrays of measurements
 smeasure = findMeasurements(levels[0])
 wmeasure = findMeasurements(levels[1])
@@ -185,30 +180,12 @@ def checkAccuracy(smeasure, wmeasure, hmeasure):
     if max[2] / max[0] < shthres or max[2] / max[1] < hwthres:
         accuracy[2] = 1
 
-    # if (wleft/sleft < swthres or hleft/sleft < shthres or sright/wright < swthres or sright/hright < shthres):
-    #     accuracy[0] = 1
-
-    # if (sleft/wleft < swthres or hleft/wleft < hwthres or wright/sright < swthres or wright/hright < hwthres):
-    #     accuracy[1] = 1
-
-    # if (sleft/hleft < shthres or wleft/hleft < hwthres or hright/sright < shthres or hright/wright < hwthres):
-    #     accuracy[2] = 1
-
     return accuracy
 
 
 accuracy = checkAccuracy(smeasure, wmeasure, hmeasure)
 
 # -------------------make corrections---------------------#
-
-# def findMin(blackwidths):
-#     min = [0, 0]
-#     min[0] = blackwidths[1]
-#     for i in range(2, len(blackwidths)):
-#         if (blackwidths[i] < min[0]):
-#             min[0] = blackwidths[i]
-#             min[1] = i
-#     return min
 
 
 def makeCorrections(accuracy, measure, width):
@@ -270,9 +247,6 @@ def makeCorrections(accuracy, measure, width):
 
     return corrected
 
-
-# corrected = makeCorrections(accuracy[2], hmeasure, width)
-# print(corrected)
 
 # -----loop accuracy and corrections-----#
 
@@ -361,10 +335,12 @@ def bodyShape(corrected, gender):
 
     return shape
 
-def capitalise (string):
-    if (string == 'true'):
+
+def capitalise(string):
+    if string == "true":
         return True
     return False
+
 
 x = {
     "bodyshape": bodyShape(corrected, capitalise(sys.argv[5])),
