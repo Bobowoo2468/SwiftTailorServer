@@ -22,10 +22,6 @@ finalpath = os.getcwd() + path
 os.chdir(finalpath)
 img = url_to_image(sys.argv[1])
 
-# img = url_to_image(
-#     "https://res.cloudinary.com/dnsw7cosi/image/upload/v1626989769/gjoek8ybtwniqk2ncsuw.webp"
-# )
-
 # -------------------import tensorflow library-------------------#
 bodypix_model = load_model(
     download_model(BodyPixModelPaths.MOBILENET_FLOAT_50_STRIDE_16)
@@ -61,7 +57,6 @@ end = time.time()
 outputMask = np.where((mask == cv2.GC_BGD) | (mask == cv2.GC_PR_BGD), 0, 1)
 outputMask = (outputMask * 255).astype("uint8")
 
-# output = cv2.bitwise_and(resized, resized, mask=outputMask)
 cv2.imwrite("testimage.jpg", outputMask)
 
 # -------------------measurements---------------------#
@@ -147,8 +142,6 @@ hmeasure = findMeasurements(levels[2])
 smeasure.append(findMax(smeasure[0]))
 wmeasure.append(findMax(wmeasure[0]))
 hmeasure.append(findMax(hmeasure[0]))
-
-# print(max)
 
 # cv2.imwrite("newimage.jpg", newimage)
 cv2.imwrite("lineimage.jpg", lineimage)
@@ -352,6 +345,3 @@ x = {
 }
 y = json.dumps(x)
 print(y)
-
-# -------------------print---------------------#
-# cv2.imwrite("testimage.jpg", img)
